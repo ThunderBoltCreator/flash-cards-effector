@@ -1,0 +1,14 @@
+// .swcrc
+{
+  "$schema": "https://json.schemastore.org/swcrc",
+  "jsc": {
+    "experimental": {
+      "plugins": [
+        "@effector/swc-plugin",
+        {
+          "factories": ["atomic-router"]
+        }
+      ]
+    }
+  }
+}
