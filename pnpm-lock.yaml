@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@farfetched/atomic-router':
+    specifier: ^0.12.2
+    version: 0.12.2(@farfetched/core@0.12.2)(effector@23.2.0)
   '@farfetched/core':
     specifier: ^0.12.2
     version: 0.12.2(effector@23.2.0)
@@ -32,6 +35,9 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  zod:
+    specifier: ^3.22.4
+    version: 3.22.4
 
 devDependencies:
   '@effector/swc-plugin':
@@ -482,6 +488,16 @@ packages:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@farfetched/atomic-router@0.12.2(@farfetched/core@0.12.2)(effector@23.2.0):
+    resolution: {integrity: sha512-jbNiiZDdagxfZy9Cr4n0uvt+Uy90d6MadRNetaZcmFePTrwzbU/ec5zgw8Mm98TG8Hz/DyXJ7o0qVLr8b+4q3A==}
+    peerDependencies:
+      '@farfetched/core': 0.12.2
+      effector: ^23.0.0
+    dependencies:
+      '@farfetched/core': 0.12.2(effector@23.2.0)
+      effector: 23.2.0
+    dev: false
 
   /@farfetched/core@0.12.2(effector@23.2.0):
     resolution: {integrity: sha512-4acugDMoM8ZBck3fXQWYhWWk2aaUojDjWXQvnFL2vIn4N1SciKMsiF85oJ4TqE6886aZOnP65GAGoxTr7fk1OQ==}
@@ -3729,3 +3745,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod@3.22.4:
+    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
+    dev: false
