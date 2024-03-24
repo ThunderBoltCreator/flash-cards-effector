@@ -4,3 +4,5 @@ enum AuthStatus {
   Anonymous,
   Authenticated,
 }
+
+const getMe = () => {}
