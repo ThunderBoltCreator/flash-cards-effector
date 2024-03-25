@@ -1,4 +1,3 @@
-import { appStarted } from '@/shared/config/init'
 import {
   createHistoryRouter,
   createRoute,
@@ -6,6 +5,8 @@ import {
 } from 'atomic-router'
 import { sample } from 'effector'
 import { createBrowserHistory } from 'history'
+
+import { appStarted } from '~/shared/config/init'
 
 export const routes = {
   auth: {

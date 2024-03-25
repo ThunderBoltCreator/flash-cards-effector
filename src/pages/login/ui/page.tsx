@@ -1,5 +1,6 @@
-import { routes } from '@/shared/routing'
 import { Link } from 'atomic-router-react'
+
+import { routes } from '~/shared/routing'
 
 export const LoginPage = () => {
   return (

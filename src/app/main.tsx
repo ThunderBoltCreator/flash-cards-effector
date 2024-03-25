@@ -1,12 +1,13 @@
 import React from 'react'
 
-import { Pages } from '@/pages'
-import { appStarted } from '@/shared/config/init'
-import { router } from '@/shared/routing'
 import { RouterProvider } from 'atomic-router-react'
 import ReactDOM from 'react-dom/client'
 
-import 'src/app/globals.css'
+import { Pages } from '~/pages'
+import { appStarted } from '~/shared/config/init'
+import { router } from '~/shared/routing'
+
+import '~/app/globals.css'
 
 appStarted()
 
