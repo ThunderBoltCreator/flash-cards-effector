@@ -6,7 +6,7 @@ import { router } from '@/shared/routing'
 import { RouterProvider } from 'atomic-router-react'
 import ReactDOM from 'react-dom/client'
 
-import './index.css'
+import 'src/app/globals.css'
 
 appStarted()
 
