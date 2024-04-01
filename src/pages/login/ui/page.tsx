@@ -1,12 +1,61 @@
+import { FC, useId } from 'react'
+
 import { Link } from 'atomic-router-react'
 
-import { routes } from '~/shared/routing'
+import { Button } from '~/shared/ui/button'
+import { Card, CardContent, CardFooter, CardHeader } from '~/shared/ui/card'
+import { Checkbox } from '~/shared/ui/checkbox'
+import { Input } from '~/shared/ui/input'
+import { Label } from '~/shared/ui/label'
+import { Typography } from '~/shared/ui/typography'
 
-export const LoginPage = () => {
+export const Asdas: FC = () => {
+  return <div></div>
+}
+export function LoginPage() {
+  const emailId = useId()
+  const passwordId = useId()
+  const rememberMeId = useId()
+
   return (
-    <div>
-      <p>LoginPage</p>
-      <Link to={routes.auth.register}>Go to RegisterPage</Link>
-    </div>
+    <Card className={'max-w-md'}>
+      <CardHeader>
+        <Typography className={'text-center'} variant={'h1'}>
+          Sign In
+        </Typography>
+      </CardHeader>
+      <CardContent>
+        <div className={'mb-6'}>
+          <Label className={'text-dark-100'} htmlFor={emailId}>
+            Email
+          </Label>
+          <Input id={emailId} name={'email'} type={'email'} />
+        </div>
+        <div className={'mb-3'}>
+          <Label className={'text-dark-100'} htmlFor={passwordId}>
+            Password
+          </Label>
+          <Input id={passwordId} name={'password'} type={'password'} />
+        </div>
+        <div className={'flex items-center gap-x-2'}>
+          <Checkbox id={rememberMeId} name={'rememberMe'} />
+          <Label htmlFor={rememberMeId}>Remember me</Label>
+        </div>
+      </CardContent>
+      <CardFooter className={'flex-col items-start'}>
+        <Typography as={Link} className={'self-end'} to={''}>
+          Forgot Password?
+        </Typography>
+        <Button className={'w-full'} variant={'primary'}>
+          Sign In
+        </Button>
+        <Typography className={''} variant={'body2'}>
+          Don`t have an account?
+        </Typography>
+        <Typography as={Link} to={''} variant={'link2'}>
+          Sign Up
+        </Typography>
+      </CardFooter>
+    </Card>
   )
 }

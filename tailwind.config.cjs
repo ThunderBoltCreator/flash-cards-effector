@@ -41,6 +41,9 @@ module.exports = {
          l: '36px'
       },
       extend: {
+         boxShadow: {
+            button: '0 4px 18px 0 rgba(140, 97, 255, 0.35)'
+         },
          animation: {
             'accordion-down': 'accordion-down 0.2s ease-out',
             'accordion-up': 'accordion-up 0.2s ease-out',

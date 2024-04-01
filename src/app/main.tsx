@@ -14,7 +14,13 @@ appStarted()
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RouterProvider router={router}>
-      <Pages />
+      <div
+        className={'mx-auto flex max-w-screen-lg flex-col items-center px-2.5'}
+      >
+        <main>
+          <Pages />
+        </main>
+      </div>
     </RouterProvider>
   </React.StrictMode>
 )

@@ -2,12 +2,12 @@ import type { ComponentPropsWithoutRef, ElementType } from 'react'
 
 import { VariantProps, cva } from 'class-variance-authority'
 
-const typography = cva('typography', {
+const index = cva('typography', {
   defaultVariants: {
-    intent: 'body1',
+    variant: 'body1',
   },
   variants: {
-    intent: {
+    variant: {
       body1: [''],
       body2: ['text-s'],
       caption: ['text-xs', 'leading-s'],
@@ -44,15 +44,15 @@ type TypographyProps<T extends ElementType> = {
   as?: T
   className?: string
 } & ComponentPropsWithoutRef<T> &
-  VariantProps<typeof typography>
+  VariantProps<typeof index>
 
 export function Typography<T extends ElementType = 'p'>({
   as,
   className,
-  intent,
+  variant,
   ...props
 }: TypographyProps<T>) {
-  const Component: ElementType = as || (intent && components[intent]) || 'p'
+  const Component: ElementType = as || (variant && components[variant]) || 'p'
 
-  return <Component {...props} className={typography({ className, intent })} />
+  return <Component {...props} className={index({ className, variant })} />
 }
