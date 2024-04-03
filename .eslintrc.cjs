@@ -1,16 +1,17 @@
 module.exports = {
   extends: ['@it-incubator/eslint-config', 'plugin:effector/recommended'],
-  plugins: ['effector'],
   overrides: [
     {
       files: ['**/*.stories.tsx'],
       rules: {
-        'react-hooks/rules-of-hooks': 'off',
         'no-console': 'off',
+        'react-hooks/rules-of-hooks': 'off',
       },
     },
   ],
+  plugins: ['effector'],
   rules: {
-    'prettier/prettier': 'off'
-  }
+    'perfectionist/sort-named-imports': 'off',
+    'prettier/prettier': 'off',
+  },
 }
