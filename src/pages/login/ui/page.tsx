@@ -1,4 +1,4 @@
-import { FC, useId } from 'react'
+import { useId } from 'react'
 
 import { Link } from 'atomic-router-react'
 
@@ -9,9 +9,6 @@ import { Input } from '~/shared/ui/input'
 import { Label } from '~/shared/ui/label'
 import { Typography } from '~/shared/ui/typography'
 
-export const Asdas: FC = () => {
-  return <div></div>
-}
 export function LoginPage() {
   const emailId = useId()
   const passwordId = useId()
