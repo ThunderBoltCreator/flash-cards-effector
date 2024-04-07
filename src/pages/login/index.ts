@@ -1,5 +1,5 @@
-import { currentRoute } from './model/model'
-import { LoginPage } from './ui/page'
+import { currentRoute } from './model'
+import { LoginPage } from './page'
 
 export const LoginRoute = {
   route: currentRoute,

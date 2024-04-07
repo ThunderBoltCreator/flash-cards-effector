@@ -12,6 +12,7 @@ module.exports = {
   plugins: ['effector'],
   rules: {
     'perfectionist/sort-named-imports': 'off',
+    'perfectionist/sort-objects': 'off',
     'prettier/prettier': 'off',
   },
 }

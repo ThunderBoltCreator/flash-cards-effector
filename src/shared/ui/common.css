@@ -1,0 +1,18 @@
+.typography {
+    @apply text-m font-regular leading-m;
+}
+
+.button {
+    @apply flex w-fit cursor-pointer items-center justify-center gap-2.5 rounded px-7 py-1.5 text-s font-bold leading-m
+    text-light-100 no-underline transition-colors duration-300 ease-linear focus-visible:outline focus-visible:outline-2
+    focus-visible:outline-info-700 disabled:pointer-events-none
+}
+
+.input {
+    @apply file:text-m file:font-regular bg-transparent text-m flex h-9 w-full rounded-sm border border-dark-300
+    px-3 py-2 transition-colors file:border-0 file:bg-transparent
+    disabled:cursor-not-allowed disabled:opacity-50
+    active:border-light-100 active:outline-none active:placeholder-light-100
+    focus-visible:outline-info-700 focus-visible:border-transparent focus-visible:outline focus-visible:outline-2 focus-visible:hover:border-transparent focus-visible:hover:outline-dark-100
+    hover:bg-dark-700 hover:border-dark-100
+}

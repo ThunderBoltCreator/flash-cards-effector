@@ -1,3 +1,5 @@
+@import '../shared/ui/common.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -72,6 +74,5 @@
     }
 }
 
-.typography {
-    @apply text-m font-regular leading-m;
-}
+
+

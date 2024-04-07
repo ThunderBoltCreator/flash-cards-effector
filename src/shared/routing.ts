@@ -1,8 +1,4 @@
-import {
-  createHistoryRouter,
-  createRoute,
-  createRouterControls,
-} from 'atomic-router'
+import { createHistoryRouter, createRoute, createRouterControls } from 'atomic-router'
 import { sample } from 'effector'
 import { createBrowserHistory } from 'history'
 
@@ -13,6 +9,7 @@ export const routes = {
     login: createRoute(),
     register: createRoute(),
   },
+  home: createRoute(),
 }
 
 const controls = createRouterControls()
@@ -27,6 +24,10 @@ export const router = createHistoryRouter({
     {
       path: '/register',
       route: routes.auth.register,
+    },
+    {
+      path: '/',
+      route: routes.home,
     },
   ],
 })

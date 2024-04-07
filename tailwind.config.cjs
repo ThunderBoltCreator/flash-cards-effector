@@ -31,7 +31,8 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)',
       },
       boxShadow: {
-        button: '0 4px 18px 0 rgba(140, 97, 255, 0.35)',
+        buttonPrimary: '0 4px 18px 0 rgba(140, 97, 255, 0.35)',
+        buttonSecondary: '0 2px 10px 0 rgba(109, 109, 109, 0.25)',
       },
       colors: {
         accent: {
