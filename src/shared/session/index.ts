@@ -14,11 +14,13 @@ export const $tokenReceived = createStore('any token')
 interface ChainParams<Params extends RouteParams> {
   otherwise?: Effect<void, any, any> | Event<void>
 }
+
 export function chainAuthorized<Params extends RouteParams>(
   route: RouteInstance<Params>,
   { otherwise }: ChainParams<Params> = {}
 ): RouteInstance<Params> {
   const sessionCheckStarted = createEvent<RouteParamsAndQuery<Params>>()
+  const sessionReceivedAnonymous = createEvent<RouteParamsAndQuery<Params>>()
 
   const alreadyAuthorized = sample({
     clock: sessionCheckStarted,
@@ -35,7 +37,7 @@ export function chainAuthorized<Params extends RouteParams>(
   if (otherwise) {
     sample({
       clock: alreadyAnonymous,
-      target: otherwise,
+      target: otherwise as Event<void>,
     })
   }
 
@@ -47,9 +49,7 @@ export function chainAuthorized<Params extends RouteParams>(
   })
 }
 
-export function chainAnonymous<Params extends RouteParams>(
-  route: RouteInstance<Params>
-): RouteInstance<Params> {
+export function chainAnonymous<Params extends RouteParams>(route: RouteInstance<Params>): RouteInstance<Params> {
   return chainRoute({
     beforeOpen: $auth,
     openOn: $auth,
