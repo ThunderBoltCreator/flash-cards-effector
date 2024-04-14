@@ -11,6 +11,12 @@ dependencies:
   '@farfetched/core':
     specifier: ^0.12.2
     version: 0.12.2(effector@23.2.0)
+  '@farfetched/zod':
+    specifier: ^0.12.3
+    version: 0.12.3(@farfetched/core@0.12.2)(zod@3.22.4)
+  '@hookform/resolvers':
+    specifier: ^3.3.4
+    version: 3.3.4(react-hook-form@7.51.2)
   '@radix-ui/react-checkbox':
     specifier: ^1.0.4
     version: 1.0.4(@types/react-dom@18.2.22)(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)
@@ -683,6 +689,24 @@ packages:
       effector: ^23.0.0
     dependencies:
       effector: 23.2.0
+    dev: false
+
+  /@farfetched/zod@0.12.3(@farfetched/core@0.12.2)(zod@3.22.4):
+    resolution: {integrity: sha512-7OayQM81YIObdI/HspLh/8Xx+MM4rSHJ1tFTy05qD4/lu+/yCplBei/9Ee+0l11Nmebq7qm/idAppvYRI6G+sQ==}
+    peerDependencies:
+      '@farfetched/core': 0.12.3
+      zod: ^3.19
+    dependencies:
+      '@farfetched/core': 0.12.2(effector@23.2.0)
+      zod: 3.22.4
+    dev: false
+
+  /@hookform/resolvers@3.3.4(react-hook-form@7.51.2):
+    resolution: {integrity: sha512-o5cgpGOuJYrd+iMKvkttOclgwRW86EsWJZZRC23prf0uU2i48Htq4PuT73AVb9ionFyZrwYEITuOFGF+BydEtQ==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.51.2(react@18.2.0)
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:

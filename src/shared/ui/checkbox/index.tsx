@@ -1,6 +1,8 @@
 import * as React from 'react'
+import { FieldValues, useController, UseControllerProps } from 'react-hook-form'
 
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
+import { CheckboxProps } from '@radix-ui/react-checkbox'
 import { CheckIcon } from '@radix-ui/react-icons'
 
 import { cn } from '~/shared/lib/utils'
@@ -17,9 +19,7 @@ const Checkbox = React.forwardRef<
     ref={ref}
     {...props}
   >
-    <CheckboxPrimitive.Indicator
-      className={cn('flex items-center justify-center text-current')}
-    >
+    <CheckboxPrimitive.Indicator className={cn('flex items-center justify-center text-current')}>
       <CheckIcon className={'h-4 w-4'} />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
@@ -27,4 +27,28 @@ const Checkbox = React.forwardRef<
 
 Checkbox.displayName = CheckboxPrimitive.Root.displayName
 
-export { Checkbox }
+type ControlledCheckboxProps<TFieldValues extends FieldValues> = UseControllerProps<TFieldValues> &
+  Omit<CheckboxProps, 'id' | 'onChange' | 'value'>
+
+const ControlledCheckbox = <TFieldValues extends FieldValues>({
+  control,
+  defaultValue,
+  name,
+  rules,
+  shouldUnregister,
+  ...props
+}: ControlledCheckboxProps<TFieldValues>) => {
+  const {
+    field: { onChange, value },
+  } = useController({
+    control,
+    defaultValue,
+    name,
+    rules,
+    shouldUnregister,
+  })
+
+  return <Checkbox checked={value} id={name} onCheckedChange={onChange} {...props} />
+}
+
+export { Checkbox, ControlledCheckbox }

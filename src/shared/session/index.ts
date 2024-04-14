@@ -9,6 +9,7 @@ enum AuthStatus {
 }
 
 export const $auth = createStore(false)
+// export const
 export const $tokenReceived = createStore('any token')
 
 interface ChainParams<Params extends RouteParams> {

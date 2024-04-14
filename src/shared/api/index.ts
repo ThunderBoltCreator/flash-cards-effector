@@ -1,6 +1,6 @@
 import { createQuery } from '@farfetched/core'
 
-function createPath(path: string) {
+export function createPath(path: string) {
   return `https://api.flashcards.andrii.es/${path}`
 }
 
