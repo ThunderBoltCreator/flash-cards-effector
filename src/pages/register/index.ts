@@ -1,5 +1,5 @@
-import { currentRoute } from './model'
-import { RegisterPage } from './page'
+import { currentRoute } from './model/register-model'
+import { RegisterPage } from './ui/register-page'
 
 export const RegisterRoute = {
   route: currentRoute,

@@ -1,5 +1,5 @@
 import { createMutation } from '@farfetched/core'
-import { createEffect } from 'effector'
+import { createEffect, sample } from 'effector'
 
 import { createPath } from '~/shared/api'
 import { routes } from '~/shared/routing'
@@ -14,17 +14,25 @@ export const loginFx = createEffect(
   async ({ email, password, rememberMe }: { email: string; password: string; rememberMe: boolean }) => {
     const res = await fetch(createPath('v1/auth/login'), {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({ email, password, rememberMe }),
+      credentials: 'include',
     })
 
     if (!res.ok) {
       throw new Error('loginFx error')
     }
-
-    return res.json()
   }
 )
 
 export const loginMutation = createMutation({
   effect: loginFx,
+})
+
+sample({
+    clock: loginMutation.finished,
+    filter: loginMutation.$succeeded,
+    fn:
 })

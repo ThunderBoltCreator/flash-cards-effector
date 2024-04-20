@@ -8,6 +8,7 @@ export const routes = {
   auth: {
     login: createRoute(),
     register: createRoute(),
+    forgotPassword: createRoute(),
   },
   home: createRoute(),
 }
@@ -24,6 +25,10 @@ export const router = createHistoryRouter({
     {
       path: '/register',
       route: routes.auth.register,
+    },
+    {
+      path: '/forgot-password',
+      route: routes.auth.forgotPassword,
     },
     {
       path: '/',

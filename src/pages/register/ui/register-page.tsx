@@ -5,26 +5,44 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Link } from 'atomic-router-react'
 import { z } from 'zod'
 
+import { registerMutation } from '~/pages/register/model/register-model'
 import { routes } from '~/shared/routing'
 import { Button } from '~/shared/ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from '~/shared/ui/card'
-import { ControlledCheckbox } from '~/shared/ui/checkbox'
 import { Input } from '~/shared/ui/input'
 import { Label } from '~/shared/ui/label'
 import { Typography } from '~/shared/ui/typography'
 
-const registerFormSchema = z.object({
-  email: z.string().email(),
-  password: z.string(),
-  confirmPassword: z.string(),
-})
+interface RegisterFormFields {
+  confirmPassword: string
+  email: string
+  name: string
+  password: string
+}
+
+const registerFormSchema = z
+  .object({
+    name: z.string().min(3).max(30),
+    email: z.string().email(),
+    password: z.string().min(3).max(30),
+    confirmPassword: z.string().min(3).max(30),
+  })
+  .superRefine(({ confirmPassword, password }, ctx) => {
+    if (password !== confirmPassword) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Passwords do not match',
+      })
+    }
+  })
 
 export const RegisterPage = () => {
+  const nameId = useId()
   const emailId = useId()
   const passwordId = useId()
   const confirmPasswordId = useId()
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit } = useForm<RegisterFormFields>({
     mode: 'onBlur',
     defaultValues: {
       email: '',
@@ -35,6 +53,15 @@ export const RegisterPage = () => {
     resolver: zodResolver(registerFormSchema),
   })
 
+  const onRegisterFormSubmit = (data: RegisterFormFields) => {
+    console.log(data)
+    registerMutation.start({
+      email: data.email,
+      name: data.name,
+      password: data.password,
+    })
+  }
+
   return (
     <Card className={'max-w-md'}>
       <CardHeader>
@@ -44,8 +71,12 @@ export const RegisterPage = () => {
       </CardHeader>
 
       <CardContent>
-        <form onSubmit={handleSubmit(onLoginFormSubmit)} ref={formRef}>
+        <form onSubmit={handleSubmit(onRegisterFormSubmit)}>
           <div className={'mb-6'}>
+            <Label className={'text-dark-100'} htmlFor={nameId}>
+              Name
+            </Label>
+            <Input {...register('name')} id={nameId} name={'name'} placeholder={'Name'} type={'text'} />
             <Label className={'text-dark-100'} htmlFor={emailId}>
               Email
             </Label>
@@ -85,10 +116,10 @@ export const RegisterPage = () => {
       </CardContent>
       <CardFooter className={'flex-col items-start'}>
         <Typography className={''} variant={'body2'}>
-          Don`t have an account?
+          Already have an account?
         </Typography>
-        <Typography as={Link} to={routes.auth.register} variant={'link2'}>
-          Sign Up
+        <Typography as={Link} to={routes.auth.login} variant={'link2'}>
+          Sign In
         </Typography>
       </CardFooter>
     </Card>

@@ -1,11 +1,11 @@
-import { useId, useRef } from 'react'
+import { useId } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Link } from 'atomic-router-react'
 import { z } from 'zod'
 
-import { loginMutation } from '~/pages/login/model'
+import { loginMutation } from '~/pages/login/model/login-model'
 import { routes } from '~/shared/routing'
 import { Button } from '~/shared/ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from '~/shared/ui/card'
@@ -30,7 +30,6 @@ export function LoginPage() {
   const emailId = useId()
   const passwordId = useId()
 
-  const formRef = useRef<HTMLFormElement>(null)
   const { register, control, handleSubmit, watch } = useForm<LoginFormFields>({
     mode: 'onBlur',
     defaultValues: {
@@ -58,7 +57,7 @@ export function LoginPage() {
       </CardHeader>
 
       <CardContent>
-        <form onSubmit={handleSubmit(onLoginFormSubmit)} ref={formRef}>
+        <form onSubmit={handleSubmit(onLoginFormSubmit)}>
           <div className={'mb-6'}>
             <Label className={'text-dark-100'} htmlFor={emailId}>
               Email
@@ -83,7 +82,7 @@ export function LoginPage() {
               Remember me
             </Label>
           </div>
-          <Typography as={Link} className={'self-end'} to={''}>
+          <Typography as={Link} className={'self-end'} to={routes.auth.forgotPassword}>
             Forgot Password?
           </Typography>
           <Button size={'fullWidth'} variant={'primary'}>
