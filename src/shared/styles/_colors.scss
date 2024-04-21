@@ -1,0 +1,50 @@
+:root {
+  // accent
+  --color-accent-100: hsl(256, 100%, 83%);
+  --color-accent-300: hsl(256, 100%, 75%);
+  --color-accent-500: hsl(256, 100%, 69%);
+  --color-accent-700: hsl(256, 55%, 55%);
+  --color-accent-900: hsl(256, 45%, 28%);
+
+  // success
+  --color-success-100: hsl(150, 100%, 75%);
+  --color-success-300: hsl(150, 79%, 52%);
+  --color-success-500: hsl(150, 82%, 44%);
+  --color-success-700: hsl(150, 82%, 33%);
+  --color-success-900: hsl(150, 82%, 22%);
+
+  // danger
+  --color-danger-100: hsl(348, 100%, 75%);
+  --color-danger-300: hsl(348, 87%, 59%);
+  --color-danger-500: hsl(348, 82%, 44%);
+  --color-danger-700: hsl(348, 82%, 33%);
+  --color-danger-900: hsl(348, 82%, 22%);
+
+  // warning
+  --color-warning-100: hsl(40, 100%, 73%);
+  --color-warning-300: hsl(40, 77%, 56%);
+  --color-warning-500: hsl(40, 100%, 43%);
+  --color-warning-700: hsl(40, 100%, 30%);
+  --color-warning-900: hsl(40, 100%, 20%);
+
+  // info
+  --color-info-100: hsl(219, 100%, 73%);
+  --color-info-300: hsl(218, 100%, 65%);
+  --color-info-500: hsl(218, 91%, 59%);
+  --color-info-700: hsl(218, 63%, 49%);
+  --color-info-900: hsl(218, 63%, 37%);
+
+  // light
+  --color-light-100: hsl(0, 0%, 100%);
+  --color-light-300: hsl(255, 100%, 98%);
+  --color-light-500: hsl(255, 44%, 96%);
+  --color-light-700: hsl(260, 9%, 87%);
+  --color-light-900: hsl(260, 5%, 77%);
+
+  // dark
+  --color-dark-100: hsl(0, 0%, 50%);
+  --color-dark-300: hsl(0, 0%, 30%);
+  --color-dark-500: hsl(0, 0%, 20%);
+  --color-dark-700: hsl(0, 0%, 9%);
+  --color-dark-900: hsl(0, 0%, 0%);
+}

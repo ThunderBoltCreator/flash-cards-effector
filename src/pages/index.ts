@@ -5,5 +5,6 @@ import { LoginRoute } from '~/pages/login'
 import { RegisterRoute } from '~/pages/register'
 
 export const Pages = createRoutesView({
-  routes: [LoginRoute, RegisterRoute, ForgotPasswordRoute],
+  // routes: [LoginRoute, RegisterRoute, ForgotPasswordRoute],
+  routes: [LoginRoute],
 })

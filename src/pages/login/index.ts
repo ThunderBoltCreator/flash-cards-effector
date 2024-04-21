@@ -1,7 +1,7 @@
-import { currentRoute } from './model/login-model'
+import { loginRoute } from './model/login-model'
 import { LoginPage } from './ui/login-page'
 
 export const LoginRoute = {
-  route: currentRoute,
+  route: loginRoute,
   view: LoginPage,
 }
