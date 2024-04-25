@@ -1,0 +1,45 @@
+.pagination {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
+}
+
+.item {
+  cursor: pointer;
+
+  width: 1.5rem;
+  height: 1.5rem;
+
+  background-color: transparent;
+  border-radius: 2px;
+}
+
+.active {
+  cursor: default;
+  color: var(--color-dark-900);
+  background-color: #fff;
+}
+
+.dots {
+  cursor: default;
+}
+
+
+.arrow {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+}
+
+.prevPage {
+  transform: rotate(-90deg);
+}
+
+.nextPage {
+  transform: rotate(90deg);
+}

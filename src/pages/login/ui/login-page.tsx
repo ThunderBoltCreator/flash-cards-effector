@@ -2,11 +2,18 @@ import { useId } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Paper, Title, Stack, TextInput, Text, Checkbox, Button, Group } from '@mantine/core'
 import { Link } from 'atomic-router-react'
+import { clsx } from 'clsx'
 import { z } from 'zod'
 
 import { routes } from '~/shared/routing'
+import { Button } from '~/shared/ui/button'
+import { Card } from '~/shared/ui/card/card'
+import { Checkboxes } from '~/shared/ui/checkbox'
+import { TextFields, PasswordFields } from '~/shared/ui/text-field'
+import { Typography } from '~/shared/ui/typography'
+
+import s from './sign-in.module.scss'
 
 import { loginMutation } from '../model/login-model'
 
@@ -42,59 +49,23 @@ export function LoginPage() {
   }
 
   return (
-    <Paper component={'section'} p={'xl'}>
-      <Stack>
-        <Title order={1}>Sign In</Title>
-        <form onSubmit={handleSubmit(onLoginFormSubmit)}>
-          {/*<Label className={'text-dark-100'} htmlFor={emailId}>*/}
-          {/*  Email*/}
-          {/*</Label>*/}
-          {/*<Input {...register('email')} id={emailId} name={'email'} placeholder={'Email'} type={'email'} />*/}
-          <TextInput
-            {...register('email')}
-            label={<Text size={'sm'}>Email</Text>}
-            name={'email'}
-            placeholder={'Email'}
-            type={'email'}
-          />
-          {/*<Label className={'text-dark-100'} htmlFor={passwordId}>*/}
-          {/*  Password*/}
-          {/*</Label>*/}
-          {/*<Input*/}
-          {/*  {...register('password')}*/}
-          {/*  id={passwordId}*/}
-          {/*  name={'password'}*/}
-          {/*  placeholder={'Password'}*/}
-          {/*  type={'password'}*/}
-          {/*/>*/}
-          <TextInput
-            {...register('password')}
-            label={<Text size={'sm'}>Password</Text>}
-            name={'password'}
-            placeholder={'Password'}
-            type={'password'}
-          />
-          {/*<div className={'flex items-center gap-x-2'}>*/}
-          {/*  <Label className={'flex items-center'}>*/}
-          {/*    <ControlledCheckbox className={'mr-2'} control={control} name={'rememberMe'} />*/}
-          {/*    Remember me*/}
-          {/*  </Label>*/}
-          {/*</div>*/}
-          <Checkbox {...register('rememberMe')} label={<Text size={'sm'}>Remember me</Text>} name={'rememberMe'} />
-          <Text className={'self-end'} component={Link} to={routes.auth.forgotPassword}>
-            Forgot Password?
-          </Text>
-          <Button size={'fullWidth'} variant={'primary'}>
-            Sign In
-          </Button>
-        </form>
-        <Text className={''} variant={'body2'}>
-          Don`t have an account?
-        </Text>
-        <Text component={Link} to={routes.auth.register} variant={'link2'}>
-          Sign Up
-        </Text>
-      </Stack>
-    </Paper>
+    <Card as={'form'} className={clsx(s.signIn)} onSubmit={handleSubmit(onLoginFormSubmit)}>
+      <Typography className={s.title} variant={'h1'}>
+        Sign In
+      </Typography>
+      <TextFields.controlled className={s.field} control={control} label={'Email'} name={'email'} type={'email'} />
+      <PasswordFields.base {...register('password')} className={s.field} label={'Password'} />
+      <Checkboxes.controlled className={s.checkbox} control={control} label={'Remember me'} name={'rememberMe'} />
+      <Typography className={s.forgot} variant={'link1'}>
+        Forgot Password?
+      </Typography>
+      <Button className={s.buttonSubmit} fullWidth>
+        Sign In
+      </Button>
+      <Typography className={s.registerLabel} variant={'body2'}>
+        Don`t have an account?
+      </Typography>
+      <Typography variant={'link2'}>Sign Up</Typography>
+    </Card>
   )
 }
