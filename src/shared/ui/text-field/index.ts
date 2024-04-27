@@ -1,5 +1,5 @@
-import { PasswordFields } from './password-fields'
+import { PasswordField } from './password-fields'
 import { SearchField } from './search-field'
-import { TextFields } from './text-fields'
+import { TextField } from './text-fields'
 
-export { PasswordFields, SearchField, TextFields }
+export { PasswordField, SearchField, TextField }

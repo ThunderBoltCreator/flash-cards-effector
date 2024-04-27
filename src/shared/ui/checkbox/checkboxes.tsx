@@ -1,30 +1,21 @@
-import type { FieldValues, UseControllerProps } from 'react-hook-form'
-
 import type { ComponentPropsWithoutRef } from 'react'
-import { useController } from 'react-hook-form'
 
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
 import { clsx } from 'clsx'
-import CheckboxIcon from 'shared/ui/checkbox/CheckboxIcon'
-import { Typography } from 'shared/ui/typography'
+
+import { Typography } from '~/shared/ui/typography'
 
 import s from './checkbox.module.scss'
+
+import CheckboxIcon from './CheckboxIcon'
 
 export type CheckboxProps = {
   label?: string
   onChange?: (checked: boolean) => void
 } & ComponentPropsWithoutRef<typeof CheckboxRadix.Root>
 
-function Checkbox({
-  checked = false,
-  className,
-  disabled,
-  label,
-  onChange,
-  value,
-  ...props
-}: CheckboxProps) {
+function Checkbox({ checked = false, className, disabled, label, onChange, value, ...props }: CheckboxProps) {
   const styles = {
     checkbox: s.checkbox,
     frame: s.frame,
@@ -41,6 +32,8 @@ function Checkbox({
           className={styles.checkbox}
           defaultChecked={false}
           disabled={disabled}
+          onChange={onChange}
+          onCheckedChange={onChange}
           value={value}
           {...props}
         >
@@ -57,31 +50,4 @@ function Checkbox({
   )
 }
 
-export type ControlledCheckboxProps<TFieldValues extends FieldValues> =
-  UseControllerProps<TFieldValues> & Omit<CheckboxProps, 'id' | 'onChange' | 'value'>
-
-function ControlledCheckbox<TFieldsValues extends FieldValues>({
-  control,
-  defaultValue,
-  name,
-  rules,
-  shouldUnregister,
-  ...props
-}: ControlledCheckboxProps<TFieldsValues>) {
-  const {
-    field: { onChange, value },
-  } = useController({
-    control,
-    defaultValue,
-    name,
-    rules,
-    shouldUnregister,
-  })
-
-  return <Checkbox checked={value} id={name} onCheckedChange={onChange} {...props} />
-}
-
-export const Checkboxes = {
-  base: Checkbox,
-  controlled: ControlledCheckbox,
-}
+export { Checkbox }

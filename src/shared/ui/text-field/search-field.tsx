@@ -2,7 +2,7 @@ import { ChangeEvent, useId, useState } from 'react'
 
 // import Cross from 'shared/assets/icons/cross'
 // import Loup from 'shared/assets/icons/loup'
-import { TextFieldProps, TextFields } from './text-fields'
+import { TextFieldProps, TextField } from './text-fields'
 
 export type SearchFieldProps = {
   onButtonClick?: () => void
@@ -31,7 +31,7 @@ export function SearchField({ onButtonClick, onValueChange, ...props }: SearchFi
   const ClearInputIcon = <button onClick={handleInputClear}>{'<Cross />'}</button>
 
   return (
-    <TextFields.base
+    <TextField
       id={id}
       leftIcon={value ? SearchIconButton : SearchIconLabel}
       onChange={onChangeField}

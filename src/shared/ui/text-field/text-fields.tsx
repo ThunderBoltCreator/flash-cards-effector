@@ -15,7 +15,7 @@ export type TextFieldProps = {
   rightIcon?: ReactElement | null
 } & ComponentPropsWithoutRef<'input'>
 
-const BaseField = forwardRef<HTMLInputElement, TextFieldProps>(
+const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
   ({ className, disabled, errorMessage, id, label, leftIcon, placeholder, rightIcon, ...props }, ref) => {
     const myId = useId()
 
@@ -41,7 +41,7 @@ const BaseField = forwardRef<HTMLInputElement, TextFieldProps>(
             className={styles.input}
             disabled={disabled}
             id={id || myId}
-            placeholder={errorMessage ? errorMessage : placeholder}
+            placeholder={errorMessage ? '' : placeholder}
             ref={ref}
             {...props}
           />
@@ -76,7 +76,9 @@ const BaseField = forwardRef<HTMLInputElement, TextFieldProps>(
 //   return <BaseField onChange={onChange} value={value} {...props} />
 // }
 
-export const TextFields = {
-  base: BaseField,
-  // controlled: ControlledTextField,
-}
+// export const TextFields = {
+//   base: BaseField,
+//   controlled: ControlledTextField,
+// }
+
+export { TextField }
